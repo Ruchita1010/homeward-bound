@@ -3,3 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --bg-screen: #101010;
+  --text: #e1e1e1;
+}
+
+body {
+  background-color: var(--bg-screen);
+  color: var(--text);
+}

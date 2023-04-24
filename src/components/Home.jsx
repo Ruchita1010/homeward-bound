@@ -38,7 +38,7 @@ const Home = () => {
       <PinkForest position={[0, 0, -10]} />
       <PinkForest position={[10, 0, 0]} />
       <PinkForest position={[-10, 0, 0]} />
-      <Player />
+      <Player boundary={{ x1: 7, x2: 10, z1: 1, z2: 8 }} />
     </>
   );
 };

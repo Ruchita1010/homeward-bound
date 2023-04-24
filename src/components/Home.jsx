@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { LayerMaterial, Depth, Noise } from 'lamina';
 import * as THREE from 'three';
 import { degreeToRadian } from '../helpers/angleConverter.js';
 import PinkForest from './modelComponents/PinkForest.jsx';
+import Blackhole from './modelComponents/Blackhole.jsx';
 import Player from './Player.jsx';
 
 const Home = () => {
+  const [showRarePortal, setShowRarePortal] = useState(false);
+  setTimeout(() => {
+    setShowRarePortal(true);
+  }, 10000);
+
   return (
     <>
       <hemisphereLight args={[0xff9000, 0x514493, 1]} position={[0, 0, 1]} />
@@ -41,6 +48,9 @@ const Home = () => {
       <PinkForest position={[10, 0, -10]} />
       <PinkForest position={[-10, 0, -10]} />
       <Player boundary={{ x1: 7, x2: 10, z1: 1, z2: 8 }} />
+      {showRarePortal && (
+        <Blackhole position={[0, 1, 0]} rotation={[0, 0, 0]} scale={5} />
+      )}
     </>
   );
 };

@@ -1,24 +1,20 @@
-import {
-  Environment,
-  OrbitControls,
-  PerspectiveCamera,
-} from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import { LayerMaterial, Depth, Noise } from 'lamina';
 import * as THREE from 'three';
 import { degreeToRadian } from '../helpers/angleConverter.js';
 import PinkForest from './modelComponents/PinkForest.jsx';
+import Player from './Player.jsx';
 
 const Home = () => {
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 2, 10]} />
       <hemisphereLight args={[0xff9000, 0x514493, 1]} position={[0, 0, 1]} />
       <ambientLight intensity={0.4} />
       <OrbitControls
         makeDefault
         maxPolarAngle={degreeToRadian(75)}
         minPolarAngle={degreeToRadian(6)}
-        maxAzimuthAngle={degreeToRadian(60)}
+        maxAzimuthAngle={degreeToRadian(20)}
         enableZoom={false}
       />
       <Environment background resolution={64}>
@@ -42,6 +38,7 @@ const Home = () => {
       <PinkForest position={[0, 0, -10]} />
       <PinkForest position={[10, 0, 0]} />
       <PinkForest position={[-10, 0, 0]} />
+      <Player />
     </>
   );
 };

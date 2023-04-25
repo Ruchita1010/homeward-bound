@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { LayerMaterial, Depth, Noise } from 'lamina';
 import * as THREE from 'three';
@@ -7,11 +7,17 @@ import PinkForest from './modelComponents/PinkForest.jsx';
 import Blackhole from './modelComponents/Blackhole.jsx';
 import Player from './Player.jsx';
 
-const Home = () => {
+const Home = ({ setRarePortalOccurence }) => {
   const [showRarePortal, setShowRarePortal] = useState(false);
-  setTimeout(() => {
-    setShowRarePortal(true);
-  }, 10000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowRarePortal(true);
+      setRarePortalOccurence(true);
+    }, 10000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <>

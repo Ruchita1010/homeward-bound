@@ -1,13 +1,19 @@
+import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
 import Home from './Home';
+import Void from './Void';
 import '../index.css';
 
 const CanvasScreen = () => {
+  const [rarePortalOccurence, setRarePortalOccurence] = useState(false);
   return (
     <Canvas shadows>
       <Suspense fallback={null}>
-        <Home />
+        {rarePortalOccurence ? (
+          <Void />
+        ) : (
+          <Home setRarePortalOccurence={setRarePortalOccurence} />
+        )}
       </Suspense>
     </Canvas>
   );

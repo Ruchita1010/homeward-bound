@@ -15,7 +15,7 @@ const App = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           style={{
-            backgroundColor: '#e1e1e1',
+            backgroundColor: '#020202',
             height: '100vh',
           }}>
           <CanvasScreen />

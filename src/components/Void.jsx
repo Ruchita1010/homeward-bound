@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Text } from '@react-three/drei';
 import WispSoul from './modelComponents/WispSoul';
 
-const Void = () => {
+const Void = ({ setGameLoop }) => {
   const [sentences, setSentences] = useState([
     '',
     `Oh, a traveller after 100 years, such an intriguing sight!`,
@@ -21,6 +21,7 @@ const Void = () => {
     const interval = setInterval(() => {
       if (currentSentence === 10) {
         clearInterval(interval);
+        setGameLoop(true);
         return;
       }
       setCurrentSentence(currentSentence + 1);

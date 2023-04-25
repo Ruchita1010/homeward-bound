@@ -4,13 +4,13 @@ import Home from './Home';
 import Void from './Void';
 import '../index.css';
 
-const CanvasScreen = () => {
+const CanvasScreen = ({ setGameLoop }) => {
   const [rarePortalOccurence, setRarePortalOccurence] = useState(false);
   return (
     <Canvas shadows>
       <Suspense fallback={null}>
         {rarePortalOccurence ? (
-          <Void />
+          <Void setGameLoop={setGameLoop} />
         ) : (
           <Home setRarePortalOccurence={setRarePortalOccurence} />
         )}

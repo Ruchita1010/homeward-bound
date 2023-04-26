@@ -25,6 +25,13 @@ const StartScreen = ({ setShowStartScreen }) => {
 \nArrow Right: Turn Right
 \nLeft Mouse Click: Attack/Touch as needed`;
 
+  const about = `Embark on a Homeward Bound Journey!
+    A rare portal opens in the heart of the forest, transporting you through space and time. The universe has a new traveller! (No one knows what it means to be a traveller except the mystic soul.)
+    Discover new worlds, each with its own unique environment, culture, and inhabitants. Plagued by despair and turmoil, their inhabitants yearn for a glimmer of hope. Extend a helping hand, offering solace, guidance, and assistance. In return for your acts of kindness, these remarkable beings may bestow upon you extraordinary powers. These newfound abilities will prove vital in your quest to construct the mythical Starry Wayfinder Portal—the only pathway leading you back to your cherished home.
+    But time is a relentless companion on your journey. You are granted a mere 30 minutes to harness the essential powers and craft the portal that will reunite you with your world. As the minutes tick away, every 4 minutes brings forth the emergence of Worldgates—gateways to new realms, brimming with untold possibilities and unforeseen challenges.
+    Will you be able to gather the essential powers, create the Starry Wayfinder Portal, and make it back home in time? The fate of your homeward bound journey rests in your hands!
+    Always remember, be kind and brave <3`;
+
   return (
     <div className={styles.start_screen}>
       <Modal
@@ -39,7 +46,9 @@ const StartScreen = ({ setShowStartScreen }) => {
           onClick={() => setShowStartScreen(false)}>
           PLAY
         </button>
-        <button className={styles.btn}>ABOUT</button>
+        <button className={styles.btn} onClick={() => handleButtonClick(about)}>
+          ABOUT
+        </button>
         <button
           className={styles.btn}
           onClick={() => handleButtonClick(controls)}>

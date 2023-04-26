@@ -17,7 +17,8 @@ export const WorldContext = createContext();
 export const WorldProvider = ({ children }) => {
   const initialState = {
     currentWorld: 'VerdantGrove',
-    message: 'the land of cute green grovekins',
+    message: `Life-giver flowers turned lethal, Alpha touch needed to end the evil
+\nNon-Grovekin's hand must do the deed, Or the deadly poison will not recede`,
   };
   const [state, dispatch] = useReducer(worldReducer, initialState);
 

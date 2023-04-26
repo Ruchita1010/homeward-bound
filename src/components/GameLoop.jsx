@@ -3,6 +3,7 @@ import MessageScreen from './MessageScreen';
 import { WorldContext } from '../contexts/WorldContext';
 import { Canvas } from '@react-three/fiber';
 import VerdantGrove from './VerdantGrove';
+import Timer from './Timer';
 
 const GameLoop = () => {
   const [showMessageScreen, setShowMessageScreen] = useState(true);
@@ -22,6 +23,7 @@ const GameLoop = () => {
       ) : (
         <Canvas shadows>
           <Suspense fallback={null}>
+            <Timer timeMultiplier={2} />
             <VerdantGrove />
           </Suspense>
         </Canvas>

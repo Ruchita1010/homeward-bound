@@ -10,10 +10,10 @@ const FlowerField = ({ setLightOnFlowerField }) => {
     .fill()
     .map(() => new Array(COLUMNS).fill());
 
+  const alphaFlowerId = Math.floor(Math.random() * 27);
   const handleFlowerClick = (e) => {
     const flowerMesh = e.object;
     const clickedFlowerId = flowerMesh.userData.id;
-    const alphaFlowerId = Math.floor(Math.random() * 27);
     if (alphaFlowerId === clickedFlowerId) {
       setLightOnFlowerField(true);
     }

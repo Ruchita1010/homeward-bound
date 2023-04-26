@@ -17,6 +17,7 @@ const Flower = (props) => {
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.56}>
         <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <mesh
+            userData={props.userData}
             geometry={nodes.Flower_Flower_0.geometry}
             material={materials.Flower}
             rotation={[-Math.PI / 2, 0, 0]}

@@ -79,10 +79,14 @@ const Timer = ({ timeMultiplier, setShowWorldgate }) => {
           lineHeight: '2rem',
         }}>
         <div>
-          Time remaining: {`${minutesForCreation}:${secondsForCreation}`}
+          Time remaining:
+          {` ${minutesForCreation.toString().padStart(2, '0')}:
+          ${secondsForCreation.toString().padStart(2, '0')}`}
         </div>
         <div>
-          Next worldgate in: {`${minutesForWorldgate}:${secondsForWorldgate}`}
+          Next worldgate in:
+          {` ${minutesForWorldgate.toString().padStart(2, '0')}:
+          ${secondsForWorldgate.toString().padStart(2, '0')}`}
         </div>
       </div>
     </Html>

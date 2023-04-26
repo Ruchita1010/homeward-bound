@@ -1,6 +1,6 @@
 import Flower from './modelComponents/Flower';
 
-const FlowerField = ({ setLightOnFlowerField }) => {
+const FlowerField = ({ onAlphaFlowerClick }) => {
   const ROWS = 14;
   const COLUMNS = 14;
   const startX = -12;
@@ -15,7 +15,10 @@ const FlowerField = ({ setLightOnFlowerField }) => {
     const flowerMesh = e.object;
     const clickedFlowerId = flowerMesh.userData.id;
     if (alphaFlowerId === clickedFlowerId) {
-      setLightOnFlowerField(true);
+      onAlphaFlowerClick(
+        'You saved the Grovekins and as a thanks they have shared their powered with you'
+      );
+      return;
     }
   };
 

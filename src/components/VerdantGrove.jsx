@@ -1,14 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { TextureLoader } from 'three';
 import { degreeToRadian } from '../helpers/angleConverter';
 import TreeHouses from './modelComponents/TreeHouses';
 import FlowerField from './FlowerField';
 import Player from './Player';
+import GuidingMessage from './GuidingMessage';
 import grassTexture from '/GrassTexture.png';
 
 const VerdantGrove = () => {
   const [lightOnFlowerField, setLightOnFlowerField] = useState(false);
+  const [guidingMessage, setGuidingMessage] = useState('');
+  const [showGuidingMessage, setShowGuidingMessage] = useState(false);
+
+  // on the component/world mount show this message
+  useEffect(() => {
+    setShowGuidingMessage(true);
+    setGuidingMessage('Click on the flower to touch them');
+  }, []);
+
+  // to only show the message for 4 seconds
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowGuidingMessage(false);
+    }, 4000);
+    return () => clearInterval(timeout);
+  }, [showGuidingMessage]);
+
+  const onAlphaFlowerClick = (message) => {
+    setLightOnFlowerField(true);
+    setGuidingMessage(message);
+    setShowGuidingMessage(true);
+  };
 
   const Plain = ({ position }) => {
     const texture = new TextureLoader().load(grassTexture);
@@ -43,8 +66,9 @@ const VerdantGrove = () => {
       <TreeHouses position={[-11, 0, 11.5]} />
       <TreeHouses position={[13.5, 0, -12.5]} />
       <Plain position={[-12, 0, -14]} />
-      <FlowerField setLightOnFlowerField={setLightOnFlowerField} />
+      <FlowerField onAlphaFlowerClick={onAlphaFlowerClick} />
       <Player boundary={{ x1: 20, x2: 20, z1: 16, z2: 20 }} />
+      {showGuidingMessage && <GuidingMessage message={guidingMessage} />}
     </>
   );
 };

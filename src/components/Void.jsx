@@ -9,7 +9,7 @@ const Void = ({ setGameLoop }) => {
     `But I have no time for delight, \nso heed my mystical message right`,
     `With certain powers gathered from a world's care, \nThe Starry Wayfinder will shine, a portal rare`,
     `Help those in need, and share in their power bright, \nFor the Wayfinder's creation, this kindness will ignite`,
-    `Worldgates appear every five, to take you on your flight`,
+    `Worldgates appear every four, to take you on your flight`,
     `But remember, the Wayfinder's power shall bloom, \nOnly if created within 30 minutes once left this void's gloom`,
     `And in each world, time flows differently, beware, \nFor these 30 minutes may change, depending on where`,
     `With kindness in thy heart, \nThe homeward bound journey shall have a promising start`,

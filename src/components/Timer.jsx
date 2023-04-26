@@ -7,7 +7,7 @@ const handleBeforeUnload = () => {
   localStorage.removeItem('TimeForWorldgate');
 };
 
-const Timer = ({ timeMultiplier }) => {
+const Timer = ({ timeMultiplier, setShowWorldgate }) => {
   const initialTimeForCreation =
     localStorage.getItem('TimeForCreation') || 30 * 60;
   const initialTimeForWorldgate =
@@ -46,6 +46,7 @@ const Timer = ({ timeMultiplier }) => {
     }, 1000 / timeMultiplier);
     if (remainingTimeForWorldgate === -1) {
       setRemainingTimeForWorldgate(4 * 60);
+      setShowWorldgate(true);
     }
     setMinutesForWorldgate(Math.floor(remainingTimeForWorldgate / 60));
     setSecondsForWorldgate(remainingTimeForWorldgate % 60);

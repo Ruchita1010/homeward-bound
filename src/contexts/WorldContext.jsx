@@ -16,8 +16,8 @@ export const WorldContext = createContext();
 
 export const WorldProvider = ({ children }) => {
   const initialState = {
-    currentWorld: 'Home',
-    message: 'Home where the heart is',
+    currentWorld: 'VerdantGrove',
+    message: 'the land of cute green grovekins',
   };
   const [state, dispatch] = useReducer(worldReducer, initialState);
 

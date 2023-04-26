@@ -1,13 +1,18 @@
 import { Suspense, useContext, useEffect, useState } from 'react';
-import MessageScreen from './MessageScreen';
-import { WorldContext } from '../contexts/WorldContext';
 import { Canvas } from '@react-three/fiber';
-import VerdantGrove from './VerdantGrove';
+import { WorldContext } from '../contexts/WorldContext';
+import { degreeToRadian } from '../helpers/angleConverter';
+import Blackhole from './modelComponents/Blackhole';
 import Timer from './Timer';
+import MessageScreen from './MessageScreen';
+import VerdantGrove from './VerdantGrove';
+import NewWorld from './NewWorld';
 
 const GameLoop = () => {
   const [showMessageScreen, setShowMessageScreen] = useState(true);
+  const [showWorldgate, setShowWorldgate] = useState(false);
   const { state, changeWorld } = useContext(WorldContext);
+  const timeMultiplier = 2;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,6 +21,15 @@ const GameLoop = () => {
     return () => clearInterval(interval);
   }, [showMessageScreen]);
 
+  useEffect(() => {
+    if (showWorldgate) {
+      const timeout = setTimeout(() => {
+        setShowWorldgate(false);
+      }, 5000 / timeMultiplier);
+      return () => clearTimeout(timeout);
+    }
+  }, [showWorldgate]);
+
   return (
     <>
       {showMessageScreen ? (
@@ -23,8 +37,23 @@ const GameLoop = () => {
       ) : (
         <Canvas shadows>
           <Suspense fallback={null}>
-            <Timer timeMultiplier={2} />
-            <VerdantGrove />
+            <Timer
+              timeMultiplier={timeMultiplier}
+              setShowWorldgate={setShowWorldgate}
+            />
+            {state.currentWorld === 'VerdantGrove' && <VerdantGrove />}
+            {state.currentWorld === 'NewWorld' && <NewWorld />}
+            {showWorldgate && (
+              <Blackhole
+                position={[2, 3.5, -10]}
+                rotation={[degreeToRadian(90), 0, 0]}
+                scale={0.5}
+                onClick={() => {
+                  setShowMessageScreen(true);
+                  changeWorld('NewWorld', 'the land of the new');
+                }}
+              />
+            )}
           </Suspense>
         </Canvas>
       )}

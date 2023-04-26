@@ -45,7 +45,7 @@ const Timer = ({ timeMultiplier }) => {
       setRemainingTimeForWorldgate((prevTime) => prevTime - 1);
     }, 1000 / timeMultiplier);
     if (remainingTimeForWorldgate === -1) {
-      setRemainingTimeForWorldgate(initialTimeForWorldgate);
+      setRemainingTimeForWorldgate(4 * 60);
     }
     setMinutesForWorldgate(Math.floor(remainingTimeForWorldgate / 60));
     setSecondsForWorldgate(remainingTimeForWorldgate % 60);

@@ -10,24 +10,27 @@ const App = () => {
   const [gameLoop, setGameLoop] = useState(false);
   return (
     <>
-      {showStartScreen && (
+      {showStartScreen ? (
         <StartScreen setShowStartScreen={setShowStartScreen} />
-      )}
-      {gameLoop ? (
-        <WorldProvider>
-          <GameLoop />
-        </WorldProvider>
       ) : (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          style={{
-            backgroundColor: '#020202',
-            height: '100vh',
-          }}>
-          <CanvasScreen setGameLoop={setGameLoop} />
-        </motion.div>
+        <>
+          {gameLoop ? (
+            <WorldProvider>
+              <GameLoop />
+            </WorldProvider>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              style={{
+                backgroundColor: '#020202',
+                height: '100vh',
+              }}>
+              <CanvasScreen setGameLoop={setGameLoop} />
+            </motion.div>
+          )}
+        </>
       )}
     </>
   );

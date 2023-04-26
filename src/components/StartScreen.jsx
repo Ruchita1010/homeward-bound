@@ -4,8 +4,11 @@ import styles from '../styles/StartScreen.module.css';
 
 const StartScreen = ({ setShowStartScreen }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleButtonClick = () => {
+  const [content, setContent] = useState(null);
+
+  const handleButtonClick = (content) => {
     setIsModalOpen(true);
+    setContent(content);
   };
 
   const credits = `"Shiny Forest" (https://skfb.ly/6yCLo) by Whitend is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
@@ -16,13 +19,18 @@ const StartScreen = ({ setShowStartScreen }) => {
   \"Flower Day 7 #3December2022Challenge" (https://skfb.ly/oBsXT) by Eduard is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
   `;
 
+  const controls = `Arrow Up: Move Forward
+\nArrow Down: Move Backward
+\nArrow Left: Turn Left
+\nArrow Right: Turn Right
+\nLeft Mouse Click: Attack/Touch as needed`;
+
   return (
     <div className={styles.start_screen}>
       <Modal
         isOpen={isModalOpen}
         setIsOpen={setIsModalOpen}
-        content={credits}
-        contentType={'credits'}
+        content={content}
       />
       <h1 className={styles.title}>HOMEWARD BOUND</h1>
       <div className={styles.options}>
@@ -32,8 +40,14 @@ const StartScreen = ({ setShowStartScreen }) => {
           PLAY
         </button>
         <button className={styles.btn}>ABOUT</button>
-        <button className={styles.btn}>CONTROLS</button>
-        <button className={styles.btn} onClick={handleButtonClick}>
+        <button
+          className={styles.btn}
+          onClick={() => handleButtonClick(controls)}>
+          CONTROLS
+        </button>
+        <button
+          className={styles.btn}
+          onClick={() => handleButtonClick(credits)}>
           CREDITS
         </button>
       </div>

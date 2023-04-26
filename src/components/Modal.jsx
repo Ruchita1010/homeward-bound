@@ -1,6 +1,6 @@
 import styles from '../styles/Modal.module.css';
 
-const Modal = ({ isOpen, setIsOpen, content, contentType }) => {
+const Modal = ({ isOpen, setIsOpen, content }) => {
   if (!isOpen) {
     return null;
   }
@@ -18,7 +18,6 @@ const Modal = ({ isOpen, setIsOpen, content, contentType }) => {
         {content.split('\n').map((line, i) => (
           <p key={i}>{line}</p>
         ))}
-        {contentType === 'credits' && <p>Thanks a lot for the assets :D</p>}
       </div>
     </div>
   );

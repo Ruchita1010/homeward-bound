@@ -2,11 +2,11 @@ import { Suspense, useContext, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { WorldContext } from '../contexts/WorldContext';
 import { degreeToRadian } from '../helpers/angleConverter';
-import Blackhole from './modelComponents/Blackhole';
-import Timer from './Timer';
-import MessageScreen from './MessageScreen';
-import VerdantGrove from './VerdantGrove';
-import NewWorld from './NewWorld';
+import Blackhole from './ModelComponents/Blackhole';
+import Timer from './UI/Timer';
+import MessageScreen from './UI/MessageScreen/MessageScreen';
+import VerdantGrove from '../worlds/VerdantGrove/VerdantGrove';
+import NewWorld from '../worlds/NewWorld/NewWorld';
 
 const GameLoop = () => {
   const [showMessageScreen, setShowMessageScreen] = useState(true);

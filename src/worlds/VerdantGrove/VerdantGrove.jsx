@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { TextureLoader } from 'three';
-import { degreeToRadian } from '../helpers/angleConverter';
-import TreeHouses from './modelComponents/TreeHouses';
+import { degreeToRadian } from '../../helpers/angleConverter';
+import TreeHouses from './ModelComponents/TreeHouses';
 import FlowerField from './FlowerField';
-import Player from './Player';
-import GuidingMessage from './GuidingMessage';
-import grassTexture from '/GrassTexture.png';
+import Player from '../../components/Player';
+import GuidingMessage from '../../components/UI/GuidingMessage';
+import grassTexture from './textures/GrassTexture.png';
 
 const VerdantGrove = () => {
   const [lightOnFlowerField, setLightOnFlowerField] = useState(false);

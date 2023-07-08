@@ -1,4 +1,4 @@
-import styles from '../styles/MessageScreen.module.css';
+import styles from './styles/MessageScreen.module.css';
 
 const MessageScreen = ({ message }) => {
   return (

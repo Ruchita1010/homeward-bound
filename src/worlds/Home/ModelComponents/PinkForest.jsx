@@ -9,7 +9,7 @@ Title: Shiny Forest
 
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import PinkForestModel from '../../assets/3d-models/PinkForest.glb';
+import PinkForestModel from '../assets/PinkForest.glb';
 
 const PinkForest = (props) => {
   const { nodes, materials } = useGLTF(PinkForestModel);

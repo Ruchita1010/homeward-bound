@@ -1,4 +1,4 @@
-import Flower from './modelComponents/Flower';
+import Flower from './ModelComponents/Flower';
 
 const FlowerField = ({ onAlphaFlowerClick }) => {
   const ROWS = 14;

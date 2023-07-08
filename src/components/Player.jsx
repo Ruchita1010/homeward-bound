@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import { useInput } from '../hooks/useInput';
-import Mew from './modelComponents/Mew';
+import Mew from './ModelComponents/Mew';
 
 const Player = ({ boundary }) => {
   const { x1, x2, z1, z2 } = boundary;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import StartScreen from './components/StartScreen';
+import StartScreen from './components/UI/StartScreen/StartScreen';
 import CanvasScreen from './components/CanvasScreen';
 import GameLoop from './components/GameLoop';
 import { WorldProvider } from './contexts/WorldContext';

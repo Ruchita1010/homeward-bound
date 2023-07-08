@@ -9,7 +9,7 @@ Title: Wisp soul
 
 import React, { useEffect, useRef } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import WispSoulModel from '../../assets/3d-models/WispSoul.glb';
+import WispSoulModel from '../assets/WispSoul.glb';
 
 const WispSoul = (props) => {
   const group = useRef();

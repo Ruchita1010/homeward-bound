@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Text } from '@react-three/drei';
-import WispSoul from './modelComponents/WispSoul';
+import WispSoul from './ModelComponents/WispSoul';
 
 const Void = ({ setGameLoop }) => {
   const [sentences, setSentences] = useState([

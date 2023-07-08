@@ -1,7 +1,7 @@
 import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import Home from './Home';
-import Void from './Void';
+import Home from '../worlds/Home/Home';
+import Void from './Void/Void';
 import '../index.css';
 
 const CanvasScreen = ({ setGameLoop }) => {

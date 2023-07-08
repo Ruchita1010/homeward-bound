@@ -9,7 +9,7 @@ Title: Tree houses
 
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import TreeHousesModel from '../../assets/3d-models/TreeHouses.glb';
+import TreeHousesModel from '../assets/TreeHouses.glb';
 
 const TreeHouses = (props) => {
   const { nodes, materials } = useGLTF(TreeHousesModel);

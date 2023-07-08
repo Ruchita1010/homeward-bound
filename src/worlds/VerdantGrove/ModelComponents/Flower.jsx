@@ -9,7 +9,7 @@ Title: Flower Day 7 #3December2022Challenge
 
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import FlowerModel from '../../assets/3d-models/Flower.glb';
+import FlowerModel from '../assets/Flower.glb';
 
 const Flower = (props) => {
   const { nodes, materials } = useGLTF(FlowerModel);

@@ -1,4 +1,4 @@
-import styles from '../styles/Modal.module.css';
+import styles from './styles/Modal.module.css';
 
 const Modal = ({ isOpen, setIsOpen, content }) => {
   if (!isOpen) {

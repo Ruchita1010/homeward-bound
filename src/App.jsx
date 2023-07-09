@@ -21,7 +21,7 @@ const App = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
               style={{
-                backgroundColor: '#020202',
+                backgroundColor: 'pink',
                 height: '100vh',
               }}>
               <CanvasScreen setGameLoop={setGameLoop} />

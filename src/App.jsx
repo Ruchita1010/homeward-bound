@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import StartScreen from './components/UI/StartScreen/StartScreen';
 import CanvasScreen from './components/CanvasScreen';
 import GameLoop from './components/GameLoop';
-import { WorldProvider } from './contexts/WorldContext';
 
 const App = () => {
   const [showStartScreen, setShowStartScreen] = useState(true);
@@ -15,9 +14,7 @@ const App = () => {
       ) : (
         <>
           {gameLoop ? (
-            <WorldProvider>
-              <GameLoop />
-            </WorldProvider>
+            <GameLoop />
           ) : (
             <motion.div
               initial={{ opacity: 0 }}

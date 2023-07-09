@@ -1,17 +1,14 @@
-import { Suspense, useContext, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { WorldContext } from '../contexts/WorldContext';
-import { degreeToRadian } from '../helpers/angleConverter';
 import Blackhole from './ModelComponents/Blackhole';
 import Timer from './UI/Timer';
 import MessageScreen from './UI/MessageScreen/MessageScreen';
-import VerdantGrove from '../worlds/VerdantGrove/VerdantGrove';
-import NewWorld from '../worlds/NewWorld/NewWorld';
+import worlds from '../data/worlds.json';
 
 const GameLoop = () => {
   const [showMessageScreen, setShowMessageScreen] = useState(true);
   const [showWorldgate, setShowWorldgate] = useState(false);
-  const { state, changeWorld } = useContext(WorldContext);
+  const [currentWorldName, setCurrentWorldName] = useState('VerdantGrove');
   const timeMultiplier = 2;
 
   useEffect(() => {
@@ -30,10 +27,22 @@ const GameLoop = () => {
     }
   }, [showWorldgate]);
 
+  const handleBlackholeClick = (nextWorldName) => {
+    setShowMessageScreen(true);
+    setCurrentWorldName(nextWorldName);
+  };
+
+  /* React does not support rendering an imported module as a component directly so React.lazy is required as it is a built-in function specifically designed to handle dynamic imports and lazy loading */
+  const CurrentWorldComponent = lazy(() =>
+    import(`../worlds/${currentWorldName}/${currentWorldName}.jsx`)
+  );
+
+  const { message, blackhole, nextWorldName } = worlds[currentWorldName];
+
   return (
     <>
       {showMessageScreen ? (
-        <MessageScreen message={state.message} />
+        <MessageScreen message={message} />
       ) : (
         <Canvas shadows>
           <Suspense fallback={null}>
@@ -41,17 +50,13 @@ const GameLoop = () => {
               timeMultiplier={timeMultiplier}
               setShowWorldgate={setShowWorldgate}
             />
-            {state.currentWorld === 'VerdantGrove' && <VerdantGrove />}
-            {state.currentWorld === 'NewWorld' && <NewWorld />}
+            <CurrentWorldComponent />
             {showWorldgate && (
               <Blackhole
-                position={[2, 3.5, -10]}
-                rotation={[degreeToRadian(90), 0, 0]}
-                scale={0.5}
-                onClick={() => {
-                  setShowMessageScreen(true);
-                  changeWorld('NewWorld', 'the land of the new');
-                }}
+                position={blackhole.position}
+                rotation={blackhole.rotation}
+                scale={blackhole.scale}
+                onClick={() => handleBlackholeClick(nextWorldName)}
               />
             )}
           </Suspense>

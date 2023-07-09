@@ -1,0 +1,20 @@
+{
+  "VerdantGrove": {
+    "message": "Life-giver flowers turned lethal, Alpha touch needed to end the evil\nNon-Grovekin's hand must do the deed, Or the deadly poison will not recede",
+    "blackhole": {
+      "position": [2, 3.5, -10],
+      "rotation": [1.5708, 0, 0],
+      "scale": 0.5
+    },
+    "nextWorldName": "NewWorld"
+  },
+  "NewWorld": {
+    "message": "THe Land Of The New",
+    "blackhole": {
+      "position": [0, 0, 0],
+      "rotation": [1.5708, 0, 0],
+      "scale": 0.5
+    },
+    "nextWorldName": "NewWorld"
+  }
+}

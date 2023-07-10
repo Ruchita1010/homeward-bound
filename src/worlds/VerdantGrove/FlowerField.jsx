@@ -1,4 +1,5 @@
 import Flower from './ModelComponents/Flower';
+import { useUUID } from '../../hooks/useUUID';
 
 const FlowerField = ({ onAlphaFlowerClick }) => {
   const ROWS = 14;
@@ -22,6 +23,9 @@ const FlowerField = ({ onAlphaFlowerClick }) => {
     }
   };
 
+  // looping though each flower, so can't use length of flowerMatrix
+  const flowerKeys = useUUID(ROWS * COLUMNS);
+
   // Set positions of flowers in a grid pattern
   for (let i = 0; i < ROWS; i++) {
     for (let j = 0; j < COLUMNS; j++) {
@@ -29,8 +33,9 @@ const FlowerField = ({ onAlphaFlowerClick }) => {
       const z = (j - COLUMNS / 2) * 1.6 + startZ;
       flowerMatrix[i][j] = (
         <Flower
+          // Flattens the 2D grid index into a 1D index
+          key={flowerKeys[i * COLUMNS + j]}
           position={[x, 0, z]}
-          key={`${i}-${j}`}
           scale={2}
           userData={{ id: i + j }}
           onClick={handleFlowerClick}
@@ -38,10 +43,14 @@ const FlowerField = ({ onAlphaFlowerClick }) => {
       );
     }
   }
+
+  // looping through each row of flowers, so we can use length of flowerMatrix
+  const groupKeys = useUUID(flowerMatrix.length);
+
   return (
     <>
-      {flowerMatrix.map((row, i) => (
-        <group key={`row-${i}`}>{row}</group>
+      {flowerMatrix.map((row, index) => (
+        <group key={groupKeys[index]}>{row}</group>
       ))}
     </>
   );

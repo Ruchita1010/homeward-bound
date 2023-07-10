@@ -6,6 +6,15 @@
       "rotation": [1.5708, 0, 0],
       "scale": 0.5
     },
+    "nextWorldName": "Gemsoria"
+  },
+  "Gemsoria": {
+    "message": "Crystal heart once whole, now in shards it lies. Energy wanes as each shard slowly petrifies.\nGemsorians blind to shards, lost in their plight. Seek the shards, restore the heart's light.",
+    "blackhole": {
+      "position": [0, 3, -100],
+      "rotation": [1.5708, 0, 0],
+      "scale": 2
+    },
     "nextWorldName": "NewWorld"
   },
   "NewWorld": {

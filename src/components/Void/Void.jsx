@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text } from '@react-three/drei';
+import { Sparkles, Text } from '@react-three/drei';
 import WispSoul from './ModelComponents/WispSoul';
 
 const Void = ({ setGameLoop }) => {
@@ -34,6 +34,7 @@ const Void = ({ setGameLoop }) => {
     <>
       <ambientLight intensity={0.6} />
       <WispSoul />
+      <Sparkles color={0xc5e9e8} size={4} scale={10} />
       <Text
         color="#e1e1e1"
         fontSize={0.25}

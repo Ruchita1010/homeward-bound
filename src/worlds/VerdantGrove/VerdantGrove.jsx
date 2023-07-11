@@ -6,31 +6,22 @@ import TreeHouses from './ModelComponents/TreeHouses';
 import FlowerField from './FlowerField';
 import Player from '../../components/Player';
 import GuidingMessage from '../../components/UI/GuidingMessage';
+import { useGuidingMessage } from '../../hooks/useGuidingMessage';
 import grassTexture from './textures/GrassTexture.png';
 
 const VerdantGrove = () => {
   const [lightOnFlowerField, setLightOnFlowerField] = useState(false);
-  const [guidingMessage, setGuidingMessage] = useState('');
-  const [showGuidingMessage, setShowGuidingMessage] = useState(false);
+  const [guidingMessage, setGuidingMessage, showGuidingMessage] =
+    useGuidingMessage();
 
-  // on the component/world mount show this message
+  // on the component(world) mount show this message so players aren't confused what to do
   useEffect(() => {
-    setShowGuidingMessage(true);
-    setGuidingMessage('Click on the flower to touch them');
+    setGuidingMessage('Click on the flowers to touch them');
   }, []);
-
-  // to only show the message for 4 seconds
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowGuidingMessage(false);
-    }, 4000);
-    return () => clearInterval(timeout);
-  }, [showGuidingMessage]);
 
   const onAlphaFlowerClick = (message) => {
     setLightOnFlowerField(true);
     setGuidingMessage(message);
-    setShowGuidingMessage(true);
   };
 
   const Plain = ({ position }) => {

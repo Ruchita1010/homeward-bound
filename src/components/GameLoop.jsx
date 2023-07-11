@@ -14,7 +14,7 @@ const GameLoop = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowMessageScreen(false);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [showMessageScreen]);
 

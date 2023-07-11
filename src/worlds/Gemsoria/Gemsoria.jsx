@@ -3,8 +3,10 @@ import { OrbitControls } from '@react-three/drei';
 import { Cavern } from './ModelComponents/Cavern';
 import { Shard } from './ModelComponents/Shard';
 import Player from '../../components/Player';
+import GuidingMessage from '../../components/UI/GuidingMessage';
 import { useUUID } from '../../hooks/useUUID';
 import { useHover } from '../../hooks/useHover';
+import { useGuidingMessage } from '../../hooks/useGuidingMessage';
 
 const Gemsoria = () => {
   const initialShardsState = [
@@ -17,6 +19,8 @@ const Gemsoria = () => {
   const [shards, setShards] = useState(initialShardsState);
   const shardKeys = useUUID(shards.length);
   const [handlePointerOver, handlePointerOut] = useHover('grab', 'auto');
+  const [guidingMessage, setGuidingMessage, showGuidingMessage] =
+    useGuidingMessage();
 
   const handleShardClick = (foundShardIndex) => {
     const updatedShards = shards.map((shard, shardIndex) =>
@@ -25,6 +29,12 @@ const Gemsoria = () => {
     setShards(updatedShards);
     // set the hovered state back to 'false'
     handlePointerOut();
+    const allShardsFound = updatedShards.every((shard) => shard.found);
+    if (allShardsFound) {
+      setGuidingMessage(
+        'You saved the Gemsorians and as a thanks they have shared their powered with you'
+      );
+    }
   };
 
   return (
@@ -47,6 +57,7 @@ const Gemsoria = () => {
             />
           )
       )}
+      {showGuidingMessage && <GuidingMessage message={guidingMessage} />}
     </>
   );
 };

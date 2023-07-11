@@ -21,6 +21,7 @@ const Gemsoria = () => {
   const [handlePointerOver, handlePointerOut] = useHover('grab', 'auto');
   const [guidingMessage, setGuidingMessage, showGuidingMessage] =
     useGuidingMessage();
+  const [skyLightColor, setSkyLightColor] = useState(false);
 
   const handleShardClick = (foundShardIndex) => {
     const updatedShards = shards.map((shard, shardIndex) =>
@@ -31,6 +32,7 @@ const Gemsoria = () => {
     handlePointerOut();
     const allShardsFound = updatedShards.every((shard) => shard.found);
     if (allShardsFound) {
+      setSkyLightColor(true);
       setGuidingMessage(
         'You saved the Gemsorians and as a thanks they have shared their powered with you'
       );
@@ -39,6 +41,7 @@ const Gemsoria = () => {
 
   return (
     <>
+      <hemisphereLight args={[skyLightColor ? 0x8b52ff : 0x000, 0x000, 0.8]} />
       <ambientLight intensity={0.2} />
       {/* default distance is infinity so restricting zoom out */}
       <OrbitControls makeDefault maxDistance={12} />

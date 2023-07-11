@@ -3,7 +3,7 @@ import { Sparkles, Text } from '@react-three/drei';
 import WispSoul from './ModelComponents/WispSoul';
 
 const Void = ({ setGameLoop }) => {
-  const [sentences, setSentences] = useState([
+  const sentences = [
     '',
     `Oh, a traveller after 100 years, such an intriguing sight!`,
     `But I have no time for delight, so heed my mystical message right`,
@@ -14,7 +14,7 @@ const Void = ({ setGameLoop }) => {
     `And in each world, time flows differently, beware, \nFor these 30 minutes may change, depending on where`,
     `With kindness in thy heart, \nThe homeward bound journey shall have a promising start`,
     'SAYONARA',
-  ]);
+  ];
   const [currentSentence, setCurrentSentence] = useState(0);
 
   useEffect(() => {

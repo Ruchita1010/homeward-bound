@@ -6,7 +6,7 @@ const Void = ({ setGameLoop }) => {
   const [sentences, setSentences] = useState([
     '',
     `Oh, a traveller after 100 years, such an intriguing sight!`,
-    `But I have no time for delight, \nso heed my mystical message right`,
+    `But I have no time for delight, so heed my mystical message right`,
     `With certain powers gathered from a world's care, \nThe Starry Wayfinder will shine, a portal rare`,
     `Help those in need, and share in their power bright, \nFor the Wayfinder's creation, this kindness will ignite`,
     `Worldgates appear every four, to take you on your flight`,
@@ -36,11 +36,11 @@ const Void = ({ setGameLoop }) => {
       <WispSoul />
       <Text
         color="#e1e1e1"
-        fontSize={0.3}
-        maxWidth={5}
+        fontSize={0.25}
+        maxWidth={6}
         lineHeight={1.4}
-        textAlign={'justify'}
-        position={[4.5, 2, 0]}>
+        textAlign={'left'}
+        position={[-4.5, 1, 0]}>
         {sentences[currentSentence]}
       </Text>
     </>

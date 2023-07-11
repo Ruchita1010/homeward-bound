@@ -1,5 +1,6 @@
 import Flower from './ModelComponents/Flower';
 import { useUUID } from '../../hooks/useUUID';
+import { useHover } from '../../hooks/useHover';
 
 const FlowerField = ({ onAlphaFlowerClick }) => {
   const ROWS = 14;
@@ -26,6 +27,7 @@ const FlowerField = ({ onAlphaFlowerClick }) => {
 
   // looping though each flower, so can't use length of flowerMatrix
   const flowerKeys = useUUID(ROWS * COLUMNS);
+  const [handlePointerOver, handlePointerOut] = useHover();
 
   // Set positions of flowers in a grid pattern
   for (let i = 0; i < ROWS; i++) {
@@ -41,6 +43,8 @@ const FlowerField = ({ onAlphaFlowerClick }) => {
           scale={2}
           userData={{ id: flowerIdx }}
           onClick={handleFlowerClick}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
         />
       );
     }

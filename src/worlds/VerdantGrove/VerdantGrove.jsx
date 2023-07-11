@@ -46,8 +46,7 @@ const VerdantGrove = () => {
       <ambientLight intensity={0.3} />
       <OrbitControls
         makeDefault
-        minPolarAngle={degreeToRadian(40)}
-        maxPolarAngle={degreeToRadian(60)}
+        maxPolarAngle={degreeToRadian(85)}
         minAzimuthAngle={degreeToRadian(40)}
         enableZoom={false}
       />

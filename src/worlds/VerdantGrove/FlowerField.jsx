@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Flower from './ModelComponents/Flower';
 import { useUUID } from '../../hooks/useUUID';
 import { useHover } from '../../hooks/useHover';
@@ -6,7 +7,11 @@ const FlowerField = ({ onAlphaFlowerClick }) => {
   const ROWS = 14;
   const COLUMNS = 14;
 
-  const alphaFlowerId = Math.floor(Math.random() * (ROWS * COLUMNS));
+  // useMemo for preventing the id from changing on re-renders
+  const alphaFlowerId = useMemo(
+    () => Math.floor(Math.random() * (ROWS * COLUMNS)),
+    []
+  );
 
   const handleFlowerClick = (e) => {
     const flowerMesh = e.object;

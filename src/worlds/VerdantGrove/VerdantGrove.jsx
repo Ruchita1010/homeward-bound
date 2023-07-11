@@ -10,7 +10,7 @@ import { useGuidingMessage } from '../../hooks/useGuidingMessage';
 import grassTexture from './textures/GrassTexture.png';
 
 const VerdantGrove = () => {
-  const [lightOnFlowerField, setLightOnFlowerField] = useState(false);
+  const [lightColor, setLightColor] = useState(false);
   const [guidingMessage, setGuidingMessage, showGuidingMessage] =
     useGuidingMessage();
 
@@ -20,7 +20,7 @@ const VerdantGrove = () => {
   }, []);
 
   const onAlphaFlowerClick = (message) => {
-    setLightOnFlowerField(true);
+    setLightColor(true);
     setGuidingMessage(message);
   };
 
@@ -28,9 +28,10 @@ const VerdantGrove = () => {
     const texture = new TextureLoader().load(grassTexture);
     return (
       <>
-        {lightOnFlowerField && (
-          <rectAreaLight position={[-30, 0, -2]} args={['red', 2, 55, 50]} />
-        )}
+        <rectAreaLight
+          position={[-30, 0, -2]}
+          args={[lightColor ? 'red' : 'black', 2, 55, 50]}
+        />
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={position} scale={2.4}>
           <planeBufferGeometry args={[10.2, 10, 50, 50]} />
           <meshStandardMaterial map={texture} />
@@ -41,9 +42,7 @@ const VerdantGrove = () => {
 
   return (
     <>
-      {lightOnFlowerField && (
-        <hemisphereLight args={[0x514493, 0xff9000, 1]} position={[0, 0, 1]} />
-      )}
+      <hemisphereLight args={[lightColor ? 0xff9000 : 0x000, 0x000, 0.6]} />
       <ambientLight intensity={0.3} />
       <OrbitControls
         makeDefault

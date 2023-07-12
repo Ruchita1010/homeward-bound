@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLoader } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { TextureLoader } from 'three';
 import { degreeToRadian } from '../../utils/angleConverter';
@@ -25,7 +26,7 @@ const VerdantGrove = () => {
   };
 
   const Plain = ({ position }) => {
-    const texture = new TextureLoader().load(grassTexture);
+    const texture = useLoader(TextureLoader, grassTexture);
     return (
       <>
         <rectAreaLight

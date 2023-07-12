@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { TextureLoader } from 'three';
-import { degreeToRadian } from '../../helpers/angleConverter';
+import { degreeToRadian } from '../../utils/angleConverter';
 import TreeHouses from './ModelComponents/TreeHouses';
 import FlowerField from './FlowerField';
 import Player from '../../components/Player';

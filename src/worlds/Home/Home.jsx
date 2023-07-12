@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Environment, OrbitControls } from '@react-three/drei';
 import { LayerMaterial, Depth, Noise } from 'lamina';
 import * as THREE from 'three';
-import { degreeToRadian } from '../../helpers/angleConverter.js';
+import { degreeToRadian } from '../../utils/angleConverter.js';
 import PinkForest from './ModelComponents/PinkForest.jsx';
 import Blackhole from '../../components/modelComponents/Blackhole.jsx';
 import Player from '../../components/Player.jsx';

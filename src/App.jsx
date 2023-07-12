@@ -8,10 +8,9 @@ const App = () => {
   const [gameLoop, setGameLoop] = useState(false);
   return (
     <>
-      {showStartScreen && (
+      {showStartScreen ? (
         <StartScreen setShowStartScreen={setShowStartScreen} />
-      )}
-      {!showStartScreen && gameLoop ? (
+      ) : gameLoop ? (
         <GameLoop />
       ) : (
         <CanvasScreen setGameLoop={setGameLoop} />

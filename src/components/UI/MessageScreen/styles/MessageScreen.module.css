@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
 .message_screen {
   min-height: 100vh;
   padding: 4vmax;
@@ -8,7 +10,8 @@
 
 .message_container {
   margin-top: 2vmax;
-  font-size: 2vmax;
+  font-size: 1.6vmax;
+  font-family: 'Merriweather', serif;
 }
 
 .message_container p {

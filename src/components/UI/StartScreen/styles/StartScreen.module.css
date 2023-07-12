@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
 .start_screen {
   min-height: 100vh;
   display: grid;
@@ -7,6 +9,7 @@
 
 .title {
   font-size: 6vmax;
+  font-family: 'Handlee', cursive;
 }
 
 .options {
@@ -19,7 +22,7 @@
 .btn {
   width: 10vmax;
   padding: 1vmax;
-  font-size: 1vmax;
+  font-size: 1.2vmax;
   border: none;
   cursor: pointer;
 }

@@ -32,7 +32,7 @@ To set up the game on your local machine, follow these steps:
 - Introduce an indicator to display the powers gained by the player.
 - Use a progress indicator to visually represent the passing of time in the game.
 - Replace the player model 'Mew' with another unique 3D model.
-- Replace the 'Treehouses' model with another model. _( The Treehouses model is itself quite complex and has many polygons. And it's repeated usage is just a lot of load for rendering. Looking for different a model)_
+- Replace the 'Treehouses' model with another model. _( The Treehouses model is itself quite complex and has many polygons. And it's repeated usage is just a lot of load for rendering. Looking for different a model )_
 - Expand the game's universe by adding more worlds.
 
 ## License

@@ -17,15 +17,15 @@ const StartScreen = ({ setShowStartScreen }) => {
     \n"Blackhole" () by shikoooooooo is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
     \n"Wisp soul" () by SeytanTuyux is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
     \n"Tree houses" (https://skfb.ly/6WPEz) by alurisnow is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
-    \"Flower Day 7 #3December2022Challenge" (https://skfb.ly/oBsXT) by Eduard is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
+    \n"Flower Day 7 #3December2022Challenge" (https://skfb.ly/oBsXT) by Eduard is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)
   `;
 
   const controls = `
-    Arrow Up: Move Forward
-    \nArrow Down: Move Backward
-    \nArrow Left: Turn Left
-    \nArrow Right: Turn Right
-    \nLeft Mouse Click: Attack/Touch as needed
+    Move Forward -  [⬆] (Up Arrow Key) 
+    \nMove Backward - [⬇] (Down Arrow Key)
+    \nTurn Left - [⬅] (Left Arrow Key)
+    \nTurn Right -  [➡] (Right Arrow Key)
+    \n/Touch/Grab/Attack - [🖱] (Left Mouse Click)
   `;
 
   const about = `

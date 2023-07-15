@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import StartScreen from './components/UI/StartScreen/StartScreen';
-import CanvasScreen from './components/CanvasScreen';
+import RarePortalDispatcher from './components/RarePortalDispatcher';
 import GameLoop from './components/GameLoop';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       ) : gameLoop ? (
         <GameLoop />
       ) : (
-        <CanvasScreen setGameLoop={setGameLoop} />
+        <RarePortalDispatcher setGameLoop={setGameLoop} />
       )}
     </>
   );

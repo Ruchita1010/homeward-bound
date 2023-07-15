@@ -4,7 +4,7 @@ import Home from '../worlds/Home/Home';
 import Void from './Void/Void';
 import '../index.css';
 
-const CanvasScreen = ({ setGameLoop }) => {
+const RarePortalDispatcher = ({ setGameLoop }) => {
   const [rarePortalOccurence, setRarePortalOccurence] = useState(false);
   return (
     <Canvas>
@@ -17,4 +17,4 @@ const CanvasScreen = ({ setGameLoop }) => {
   );
 };
 
-export default CanvasScreen;
+export default RarePortalDispatcher;

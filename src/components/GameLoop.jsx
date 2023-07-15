@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Blackhole from './ModelComponents/Blackhole';
 import Timer from './UI/Timer';
+import Loading from './UI/Loading';
 import MessageScreen from './UI/MessageScreen/MessageScreen';
 import worlds from '../data/worlds.json';
 
@@ -45,7 +46,7 @@ const GameLoop = () => {
         <MessageScreen message={message} />
       ) : (
         <Canvas shadows>
-          <Suspense fallback={null}>
+          <Suspense fallback={<Loading />}>
             <Timer
               timeMultiplier={timeMultiplier}
               setShowWorldgate={setShowWorldgate}

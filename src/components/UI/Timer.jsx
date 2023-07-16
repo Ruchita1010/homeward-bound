@@ -2,57 +2,49 @@ import { useEffect, useState } from 'react';
 import { Html } from '@react-three/drei';
 import { formatTime } from '../../utils/timeFormatter';
 
-// clear localStorage
-const handleBeforeUnload = () => {
-  localStorage.removeItem('TimeForCreation');
-  localStorage.removeItem('TimeForWorldgate');
-};
-
 const Timer = ({ timeMultiplier, setShowWorldgate }) => {
-  const initialTimeForCreation =
-    localStorage.getItem('TimeForCreation') || 30 * 60;
-  const initialTimeForWorldgate =
-    localStorage.getItem('TimeForWorldgate') || 4 * 60;
-  const [remainingTimeForCreation, setRemainingTimeForCreation] = useState(
-    initialTimeForCreation
-  );
-  const [remainingTimeForWorldgate, setRemainingTimeForWorldgate] = useState(
-    initialTimeForWorldgate
-  );
+  const initialWayFinderTime = localStorage.getItem('WayfinderTime') || 30 * 60;
+  const initialWorldgateTime = localStorage.getItem('WorldgateTime') || 4 * 60;
+  const [wayfinderTime, setWayfinderTime] = useState(initialWayFinderTime);
+  const [worldgateTime, setWorldgateTime] = useState(initialWorldgateTime);
 
   useEffect(() => {
-    let creationInterval = null;
-    if (remainingTimeForCreation > 0) {
-      creationInterval = setInterval(() => {
-        setRemainingTimeForCreation((prevTime) => prevTime - 1);
+    let wayfinderInterval = null;
+    if (wayfinderTime > 0) {
+      wayfinderInterval = setInterval(() => {
+        setWayfinderTime((prevTime) => prevTime - 1);
       }, 1000 / timeMultiplier);
     }
-
     return () => {
       // fix: keeps setting it on every render, we want to set only before the component unmounts
-      localStorage.setItem('TimeForCreation', remainingTimeForCreation);
-      clearInterval(creationInterval);
+      localStorage.setItem('WayfinderTime', wayfinderTime);
+      clearInterval(wayfinderInterval);
     };
-  }, [remainingTimeForCreation]);
+  }, [wayfinderTime]);
 
   useEffect(() => {
     const worldgateInterval = setInterval(() => {
-      setRemainingTimeForWorldgate((prevTime) => prevTime - 1);
+      setWorldgateTime((prevTime) => prevTime - 1);
     }, 1000 / timeMultiplier);
-    if (remainingTimeForWorldgate === -1) {
-      setRemainingTimeForWorldgate(4 * 60);
+
+    if (worldgateTime === -1) {
+      setWorldgateTime(4 * 60);
       setShowWorldgate(true);
     }
-
     return () => {
       // fix: keeps setting it on every render, we want to set only before the component unmounts
-      localStorage.setItem('TimeForWorldgate', remainingTimeForWorldgate);
+      localStorage.setItem('WorldgateTime', worldgateTime);
       clearInterval(worldgateInterval);
     };
-  }, [remainingTimeForWorldgate]);
+  }, [worldgateTime]);
 
   // restart the timers on page load
   useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('WayfinderTime');
+      localStorage.removeItem('WorldgateTime');
+    };
+
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
@@ -72,8 +64,8 @@ const Timer = ({ timeMultiplier, setShowWorldgate }) => {
           fontSize: '1.2rem',
           lineHeight: '2rem',
         }}>
-        <div>Time remaining: {formatTime(remainingTimeForCreation)}</div>
-        <div>Next worldgate in: {formatTime(remainingTimeForWorldgate)}</div>
+        <div>Time remaining: {formatTime(wayfinderTime)}</div>
+        <div>Next worldgate in: {formatTime(worldgateTime)}</div>
       </div>
     </Html>
   );
